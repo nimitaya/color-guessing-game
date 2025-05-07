@@ -24,6 +24,7 @@ function generateColor() {
 
 // Färbt die Felder ein und macht einen Farb Array
 function coloredSquares() {
+  message.textContent = "";
   colors = [];
   for (let i = 0; i < numSquares; i++) {
     let color = generateColor();
@@ -32,7 +33,7 @@ function coloredSquares() {
   }
 
   let correctColor = colors[Math.floor(Math.random() * numSquares)];
-  console.log(colors);
+  // console.log(colors);
   correctValue.innerText = correctColor;
 }
 
@@ -77,8 +78,8 @@ function changeMode(event) {
 
 // wurde die richtige Farbe ausgewählt?
 function clickSquare(event) {
-  console.log(event.target.style.backgroundColor);
-  console.log(correctValue.innerText.toLowerCase());
+  // console.log(event.target.style.backgroundColor);
+  // console.log(correctValue.innerText.toLowerCase());
 
   if (
     event.target.style.backgroundColor === correctValue.innerText.toLowerCase()
@@ -99,3 +100,6 @@ function clickSquare(event) {
 reset.addEventListener("click", coloredSquares);
 stripe.addEventListener("click", changeMode);
 container.addEventListener("click", clickSquare); // für das Auswählen der Squares
+
+checkMode();
+coloredSquares()
